@@ -99,7 +99,7 @@ public:
 	void deQueue() {
 		ll.deleteHead();
 	}
-	SinglyNode<type>* frontQueue() { // return the whole SinglyNode
+	OneLinkNode<type>* frontQueue() { // return the whole SinglyNode
 		return ll.getHead();
 	}
 	bool isEmpty() {

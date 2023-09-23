@@ -1,46 +1,48 @@
 /*
-	Author: Bui Tuan Anh
-	Hanoi University of science and technology
-	Declare struct
-	Template format --- can use like personal libruary
+        Author: Bui Tuan Anh
+        Hanoi University of science and technology
+        Declare struct
+        Template format --- can use like personal libruary
 */
 #ifndef TEMPLATE_H_
 #define TEMPLATE_H_
 
-#include<iostream>
-#include<string>
-#include<iomanip>
+#include <iomanip>
+#include <iostream>
+#include <string>
 
-using namespace std;
-
-template<typename type>
-void mySwap(type value1, type value2) {
-	type temp = value1;
-	value1 = value2;
-	value2 = temp;
+// Just swap value (dereferent) not the address
+template <typename type>
+void swap(type* value1, type* value2) {
+    type temp = *value1;
+    *value1 = *value2;
+    *value2 = *temp;
 }
 
-// Node for Singly Linked List
-template<typename type>
-struct SinglyNode {
-	type data;
-	SinglyNode* next;
+// Node for Single Linked List
+template <typename type>
+class OneLinkNode {
+    type data;
+    OneLinkNode* next;
+
+   public:
+    ~OneLinkNode() {
+        delete this->next;  // this will be chained until NULL is found
+    }
 };
 
-// Node for Doubly Linked List
-template<typename type>
-struct DoublyNode {
-	type data;
-	DoublyNode* prev;
-	DoublyNode* next;
+// Node for Double link listed or Binary tree
+template <typename type>
+class OneLinkNode {
+    type data;
+    OneLinkNode* next;
+    OneLinkNode* pre;
+
+   public:
+    ~OneLinkNode() {
+        delete this->pre;
+        delete this->next;  // this will be chained until NULL is found
+    }
 };
 
-// Binary Search Tree Node for node of a binarytree
-template<typename type>
-struct BSTNode {
-	type data;
-	BSTNode* left;
-	BSTNode* right;
-};
-
-#endif // !TEMPLATE_H_
+#endif  // !TEMPLATE_H_

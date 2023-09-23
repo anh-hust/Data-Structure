@@ -77,7 +77,7 @@ public:
 	void pop() {
 		ll.deleteHead();
 	}
-	SinglyNode<type>* getTop() {
+	OneLinkNode<type>* getTop() {
 		return ll.getHead();
 	}
 	//print from bottom to top of stack (from tail to head of linked list)
